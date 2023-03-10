@@ -1,0 +1,11 @@
+{
+    "configurations": [
+    
+        {
+            "type": "chrome",
+            "name": "http://{{URL}}api/v1/tours//tours-within/400/center/34.111745,-118.113491/unit/mi",
+            "request": "launch",
+            "url": "http://{{URL}}api/v1/tours//tours-within/400/center/34.111745,-118.113491/unit/mi"
+        }
+    ]
+}
