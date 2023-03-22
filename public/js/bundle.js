@@ -9979,7 +9979,7 @@ const login = async (email, password) => {
   try {
     const res = await (0,axios__WEBPACK_IMPORTED_MODULE_1__["default"])({
       method: 'POST',
-      url: 'http://localhost:3000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         email,
         password
@@ -10001,9 +10001,9 @@ const logout = async () => {
   try {
     const res = await (0,axios__WEBPACK_IMPORTED_MODULE_1__["default"])({
       method: 'GET',
-      url: 'http://localhost:3000/api/v1/users/logout'
+      url: '/api/v1/users/logout'
     });
-    if ((res.data.status = 'success')) location.replace("http://localhost:3000");
+    if ((res.data.status = 'success')) location.replace("/");
   } catch (err) {
     console.log(err.response);
     (0,_alerts__WEBPACK_IMPORTED_MODULE_0__.showAlert)('error', 'Error logging out! Try again.');
@@ -10183,9 +10183,9 @@ const bookTour = async tourId => {
   try {
     // 1) Get checkout session from API
     const session = await (0,axios__WEBPACK_IMPORTED_MODULE_1__["default"])(
-      `http://localhost:3000/api/v1/bookings/checkout-session/${tourId}`
+      `/api/v1/bookings/checkout-session/${tourId}`
     );
-    console.log(session);
+    // console.log(session);
     // 2) create checkout form + charge credit card
     await stripe.redirectToCheckout({
         sessionId: session.data.session.id
@@ -10221,8 +10221,8 @@ const updateSettings = async (data, type) => {
   try {
     const url =
       type === 'password'
-        ? 'http://localhost:3000/api/v1/users/updateMyPassword'
-        : 'http://localhost:3000/api/v1/users/updateMe';
+        ? '/api/v1/users/updateMyPassword'
+        : '/api/v1/users/updateMe';
 
     const res = await (0,axios__WEBPACK_IMPORTED_MODULE_1__["default"])({
       method: 'PATCH',
@@ -14411,7 +14411,7 @@ if (loginForm) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    console.log(email, password);
+    // console.log(email, password);
     await (0,_login__WEBPACK_IMPORTED_MODULE_2__.login)(email, password);
   });
 }
@@ -14424,7 +14424,7 @@ if (signupForm) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('passwordConfirm').value;
-    console.log(name,email, password, passwordConfirm);
+    // console.log(name,email, password, passwordConfirm);
     await (0,_signup__WEBPACK_IMPORTED_MODULE_6__.signup)(name,email, password, passwordConfirm);
 
     document.querySelector('.btn--signup').textContent = 'Sign up';
@@ -14439,7 +14439,7 @@ if (resetPasswordForm) {
     e.preventDefault();
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('passwordConfirm').value;
-    console.log(password, passwordConfirm);
+    // console.log(password, passwordConfirm);
     await (0,_passwordReset__WEBPACK_IMPORTED_MODULE_4__.resetPassword)(password, passwordConfirm);
   });
 }
@@ -14464,7 +14464,6 @@ if (userDataForm)
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
     await (0,_updateSettings__WEBPACK_IMPORTED_MODULE_3__.updateSettings)(form, 'data');
   });
 

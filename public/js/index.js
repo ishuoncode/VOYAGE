@@ -45,7 +45,7 @@ if (loginForm) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    console.log(email, password);
+    // console.log(email, password);
     await login(email, password);
   });
 }
@@ -58,7 +58,7 @@ if (signupForm) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('passwordConfirm').value;
-    console.log(name,email, password, passwordConfirm);
+    // console.log(name,email, password, passwordConfirm);
     await signup(name,email, password, passwordConfirm);
 
     document.querySelector('.btn--signup').textContent = 'Sign up';
@@ -73,7 +73,7 @@ if (resetPasswordForm) {
     e.preventDefault();
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('passwordConfirm').value;
-    console.log(password, passwordConfirm);
+    // console.log(password, passwordConfirm);
     await resetPassword(password, passwordConfirm);
   });
 }
@@ -98,7 +98,6 @@ if (userDataForm)
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
     await updateSettings(form, 'data');
   });
 
