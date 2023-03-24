@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 });
 router.get(
   '/overview',
-  bookingController.createBookingCheckout,
+  // bookingController.createBookingCheckout,
   authController.isLoggedIn,
   viewController.getOverview
 );
