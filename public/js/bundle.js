@@ -9909,11 +9909,11 @@ const hideAlert = () => {
   const el = document.querySelector('.alert');
   if (el) el.parentElement.removeChild(el);
 };
-const showAlert = (type, msg) => {
+const showAlert = (type, msg, time = 7) => {
   hideAlert();
   const markup = `<div class="alert alert--${type}">${msg}</div>`;
   document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
-  window.setTimeout(hideAlert, 5000);
+  window.setTimeout(hideAlert, time * 1000);
 };
 
 
@@ -14364,7 +14364,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _forgotPassword__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./forgotPassword */ "./public/js/forgotPassword.js");
 /* harmony import */ var _signup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./signup */ "./public/js/signup.js");
 /* harmony import */ var _stripe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stripe */ "./public/js/stripe.js");
+/* harmony import */ var _alerts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./alerts */ "./public/js/alerts.js");
 /* eslint-disable */
+
 
 
 
@@ -14493,6 +14495,9 @@ if(bookBtn)
     await (0,_stripe__WEBPACK_IMPORTED_MODULE_7__.bookTour)(tourId); 
     e.target.textContent="Book tour now!";
 })
+
+const alertMessage = document.querySelector('body').dataset.alert;
+if (alertMessage) (0,_alerts__WEBPACK_IMPORTED_MODULE_8__.showAlert)('success', alertMessage, 20);
 })();
 
 /******/ })()

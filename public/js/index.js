@@ -7,6 +7,7 @@ import { resetPassword } from './passwordReset';
 import { forgotPassword } from './forgotPassword';
 import { signup } from './signup';
 import { bookTour } from './stripe';
+import { showAlert } from './alerts';
 
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
@@ -127,3 +128,6 @@ if(bookBtn)
     await bookTour(tourId); 
     e.target.textContent="Book tour now!";
 })
+
+const alertMessage = document.querySelector('body').dataset.alert;
+if (alertMessage) showAlert('success', alertMessage, 20);
