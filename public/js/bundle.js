@@ -9940,7 +9940,7 @@ const forgotPassword = async email => {
   try {
     const res = await (0,axios__WEBPACK_IMPORTED_MODULE_1__["default"])({
       method: 'POST',
-      url: 'http://localhost:3000/api/v1/users/forgotPassword',
+      url: '/api/v1/users/forgotPassword',
       data: {
         email
       }
@@ -10137,7 +10137,7 @@ const signup = async (name, email, password, passwordConfirm) => {
   try {
     const res = await (0,axios__WEBPACK_IMPORTED_MODULE_1__["default"])({
       method: 'POST',
-      url: 'http://localhost:3000/api/v1/users/signup',
+      url: '/api/v1/users/signup',
       data: {
         name,
         email,
